@@ -2,12 +2,12 @@
 
 open Xamarin.Forms
 
-type ReadFileResourcePage (mainPage : ContentPage) =
+type ReadFileResourcePage (mainNav : INavigation) =
     let viewModel = ReadFileResource.PageVM ()
     let button = Button (Text = "Read File Resource")
     let page = ReadFileResource.Page (viewModel)
     let loadFilePage _ = do
-        mainPage.Navigation.PushAsync (page) |> ignore
+        mainNav.PushAsync (page) |> ignore
         viewModel.Text <- "Sample.txt" |> ReadFileResource.readFile
     do
         button.Clicked.Add (loadFilePage)
@@ -18,9 +18,10 @@ type App () =
     let stack = StackLayout (VerticalOptions = LayoutOptions.Center, Padding = Thickness (40.0))
     let label = Label (XAlign = TextAlignment.Center, Text = "Main Page")
     let mainPage = ContentPage (Content = stack)
-    let page1 = ReadFileResourcePage (mainPage)
+    let navPage = NavigationPage (mainPage)
+    let page1 = ReadFileResourcePage (navPage.Navigation)
     do
 
         stack.Children.Add (label)
         stack.Children.Add (page1.Button)
-        base.MainPage <- NavigationPage (mainPage)
+        base.MainPage <- navPage
