@@ -46,6 +46,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PlatformServices.fs" />
+    <Compile Include="ReadAndWriteFiles.fs" />
     <Compile Include="ReadFileResource.fs" />
     <Compile Include="XamFormsEtudes.fs" />
     <Compile Include="AssemblyInfo.fs" />
