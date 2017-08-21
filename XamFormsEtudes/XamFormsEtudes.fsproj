@@ -44,15 +44,21 @@
     <Reference Include="FSharp.Core">
       <HintPath>..\packages\FSharp.Core.4.0.0.1\lib\portable-net45+netcore45+wpa81+wp8\FSharp.Core.dll</HintPath>
     </Reference>
+    <Reference Include="System.IO.Compression">
+      <HintPath>..\packages\Microsoft.Bcl.Compression.3.9.85\lib\portable-net45+win8+wp8+wpa81\System.IO.Compression.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PlatformServices.fs" />
+    <Compile Include="AssemblyResources.fs" />
     <Compile Include="ReadAndWriteFiles.fs" />
     <Compile Include="ReadFileResource.fs" />
+    <Compile Include="ReadZipFile.fs" />
     <Compile Include="XamFormsEtudes.fs" />
     <Compile Include="AssemblyInfo.fs" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Sample.txt" />
+    <EmbeddedResource Include="ElAventurero.epub" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.Portable.FSharp.Targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

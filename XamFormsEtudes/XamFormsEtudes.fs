@@ -8,7 +8,7 @@ type ReadFileResourcePage (mainNav : INavigation) =
     let button = Button (Text = "Read File Resource")
     let onButtonClick _ = do
         mainNav.PushAsync (page) |> ignore
-        viewModel.Text <- "Sample.txt" |> ReadFileResource.readFile
+        viewModel.Text <- "Sample.txt" |> AssemblyResources.readFile
     do
         button.Clicked.Add (onButtonClick)
     member val Button = button with get

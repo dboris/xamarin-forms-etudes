@@ -6,13 +6,13 @@ open System.Diagnostics
 open Xamarin.Forms
 
 module ReadAndWriteFiles =
-    let fileService = DependencyService.Get<PlatformServices.IFileIO> ()
 
     type PageVM (fileName : string) =
+        let fileService = PlatformServices.fileService
         let propertyChanged = Event<PropertyChangedEventHandler, PropertyChangedEventArgs> ()
         interface INotifyPropertyChanged with
             [<CLIEvent>] member __.PropertyChanged = propertyChanged.Publish
-
+        
         member val EntryText = "" with get, set
         member val FileText = "" with get, set
 
