@@ -53,7 +53,7 @@
     <Compile Include="AssemblyResources.fs" />
     <Compile Include="ReadAndWriteFiles.fs" />
     <Compile Include="ReadFileResource.fs" />
-    <Compile Include="ReadZipFile.fs" />
+    <Compile Include="HybridWebview.fs" />
     <Compile Include="XamFormsEtudes.fs" />
     <Compile Include="AssemblyInfo.fs" />
     <None Include="packages.config" />

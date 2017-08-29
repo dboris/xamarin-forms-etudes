@@ -23,6 +23,16 @@ type ReadAndWriteFilesPage (mainNav : INavigation) =
         button.Clicked.Add (onButtonClick)
     member val Button = button with get
 
+type HybridWebviewPage (mainNav : INavigation) =
+    let viewModel = HybridWebview.ViewModel ()
+    let page = HybridWebview.Page (viewModel)
+    let button = Button (Text = "Hybrid Webview")
+    let onButtonClick _ = do
+        mainNav.PushAsync (page) |> ignore
+    do
+        button.Clicked.Add (onButtonClick)
+    member val Button = button with get
+
 type App () = 
     inherit Application ()
     let stack = StackLayout (VerticalOptions = LayoutOptions.Center, Padding = Thickness (40.0))
@@ -31,10 +41,12 @@ type App () =
     let navPage = NavigationPage (mainPage)
     let page1 = ReadFileResourcePage (navPage.Navigation)
     let page2 = ReadAndWriteFilesPage (navPage.Navigation)
+    let page3 = HybridWebviewPage (navPage.Navigation)
 
     do
 
         stack.Children.Add (label)
         stack.Children.Add (page1.Button)
         stack.Children.Add (page2.Button)
+        stack.Children.Add (page3.Button)
         base.MainPage <- navPage

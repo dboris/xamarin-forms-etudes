@@ -72,6 +72,12 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\XamFormsEtudes\XamFormsEtudes.fsproj">
+      <Project>{1990F7C3-330B-4199-A9EE-BD187FA46BB2}</Project>
+      <Name>XamFormsEtudes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-128.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-128%402x.png" />
@@ -88,15 +94,11 @@
     <None Include="Entitlements.plist" />
     <InterfaceDefinition Include="Main.storyboard" />
     <Compile Include="PlatformServices.fs" />
+    <Compile Include="CustomRenderers.fs" />
     <Compile Include="AppDelegate.fs" />
     <Compile Include="Main.fs" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\XamFormsEtudes\XamFormsEtudes.fsproj">
-      <Project>{1990F7C3-330B-4199-A9EE-BD187FA46BB2}</Project>
-      <Name>XamFormsEtudes</Name>
-    </ProjectReference>
+    <BundleResource Include="Resources\index.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.FSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.4.0.266-pre1\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.266-pre1\build\netstandard1.0\Xamarin.Forms.targets')" />
