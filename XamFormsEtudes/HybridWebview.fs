@@ -5,6 +5,7 @@ open System.ComponentModel
 open Xamarin.Forms
 
 module Controls =
+    let log = Diagnostics.Debug.WriteLine
 
     type HybridWebView () =
         inherit View ()

@@ -1,8 +1,8 @@
-﻿namespace XamFormsEtudes.Mac
+﻿namespace XamFormsEtudes.iOS
 
 open System
 open Xamarin.Forms
-open Xamarin.Forms.Platform.MacOS
+open Xamarin.Forms.Platform.iOS
 
 open Foundation
 open WebKit
@@ -46,8 +46,10 @@ module CustomRenderers =
 
             if (not << isNull) <| box e.NewElement  // e.NewElement <> null
             then
-                let fileName = IO.Path.Combine (NSBundle.MainBundle.BundlePath, "Contents", "Resources", self.Element.Uri)
+                // iOS resources end up in the bundle root dir
+                let fileName = IO.Path.Combine (NSBundle.MainBundle.BundlePath, self.Element.Uri)
                 let request = new NSUrlRequest (new NSUrl (fileName, false))
                 self.Control.LoadRequest request |> ignore
 
     [<assembly: ExportRenderer (typeof<HybridWebView>, typeof<HybridWebViewRenderer>)>] do ()
+
