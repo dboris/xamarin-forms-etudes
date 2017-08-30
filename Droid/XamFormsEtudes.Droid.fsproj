@@ -85,6 +85,7 @@
     <Reference Include="Xamarin.Android.FSharp.ResourceProvider.Runtime">
       <HintPath>..\packages\Xamarin.Android.FSharp.ResourceProvider.1.0.0.13\lib\Xamarin.Android.FSharp.ResourceProvider.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Android.Export" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XamFormsEtudes\XamFormsEtudes.fsproj">
@@ -97,7 +98,10 @@
     <Folder Include="Resources\values\" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\index.html" />
+    <None Include="Assets\AboutAssets.txt" />
     <Compile Include="PlatformServices.fs" />
+    <Compile Include="CustomRenderers.fs" />
     <Compile Include="MainActivity.fs" />
     <Compile Include="Properties\AssemblyInfo.fs" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -106,7 +110,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
-    <None Include="Assets\AboutAssets.txt" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.FSharp.targets" />
